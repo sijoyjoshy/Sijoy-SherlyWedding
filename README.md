@@ -1,2 +1,2 @@
-# Sijoy-SherlyWedding
+# Sijoy-Sherly
 ItsOurWeddingSite
