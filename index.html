@@ -46,49 +46,43 @@
     font-size: 28px;
   }
 
-  .border-wrapper {
+.border-wrapper {
     margin: 10px;
     border-width: 5px;
   }
 
   .page-border.section {
-    padding: 20px 10px;
+    padding: 10px 10px;
   }
 }
 
-    html {
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+
+    main {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
     }
-
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-         }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #fff;
-      border-bottom: 2px solid #D4AF37;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-family: 'Playfair Display', serif;
-      color: #8b0000;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
     section {
       min-height: 100vh;
       padding-top: 60px; /* for nav space */
+      scroll-snap-align: start;
     }
+ main::-webkit-scrollbar {
+      display: none;
+    }
+    main {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
 
 #countdown-section {
   height: 100vh;
@@ -98,9 +92,10 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  padding-top: 60px; 
+  padding-top: 10px; 
   box-sizing: border-box;
-}
+margin top: 100px;
+ }
 
 #countdown-section .page-border.section {
   height: 100%;
@@ -109,11 +104,14 @@
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+   border-radius: 20px;
+   margin top: 100px;
 } 
     .countdown {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 20px;
+      margin-top: 10px;
     }
     .circle-image {
       width: 200px;
@@ -130,6 +128,25 @@
       object-fit: cover;
     }
 
+
+   .normal-image {
+  width: 100%;
+  max-width: 600px;  
+  aspect-ratio: 16/9;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.normal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
     .title {
       font-family: "Spectral", serif;
       font-weight: 700;
@@ -140,12 +157,22 @@
     }
 
     .names {
-      font-family: "Akaya Kanadaka", system-ui;
+      font-family: Cookie;
       font-style: bold;
-      font-size: 25px;
+      font-size: 45px;
       letter-spacing: 2px;
       color: #D4AF37;
     }
+
+   container {
+  border: 5px solid goldenrod;
+  padding: 10px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: auto;
+  background: white;
+}
+
 
     .and, .flowers, .date {
       font-size: 1.5rem;
@@ -163,6 +190,14 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       overflow: hidden;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+   border-radius: 20px;
+
     }
 
     .gallery-container {
@@ -193,7 +228,7 @@
 
     .section {
       text-align: center;
-      padding: 40px 20px;
+      padding: 10px 20px;
     }
 
     .center-text {
@@ -234,6 +269,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+padding: 3px;
     }
 
     .page-border {
@@ -245,20 +281,22 @@
       width: 90%;
     }
   .page-border.section {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  text-align: center;
-}
+  flex-direction: column;
+  box-sizing: border-box;
+   border-radius: 20px;
+} 
+
 
 
 .invitation {
   position: relative;
   max-width: 400px;
   width: 100%;
-  padding:500 px;
+  padding:20 px;
   text-align: center;
   border-radius: 16px;
   margin: 20px;
@@ -325,8 +363,6 @@
   z-index: -1;
 }
 
-
-
  @keyframes rotateOuter {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -373,6 +409,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+padding: 5px;
     }
     .thank-you-container {
       text-align: center;
@@ -386,17 +423,7 @@
     .thank-you-container .circle-image {
       margin: 40px auto 20px;
     }
-    .thank-you {
-      font-size: 24px;
-      color: #555;
-      font-family: 'Playfair Display', serif;
-    }
-    .thank-you strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 28px;
-      color: #D4AF37;
-    }
+    
     .story{
       font-family: "Lexend", sans-serif;
       font-size: 16px;
@@ -406,25 +433,19 @@
   </style>
 </head>
 <body>
+<main>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#countdown-section">Countdown</a>
-    <a href="#gallery-section">Gallery</a>
-    <a href="#invitation-section">Invitation</a>
-    <a href="#thankyou-section">Thank You</a>
-  </nav>
 
   <!-- Page 1: Countdown -->
  <section id="countdown-section">
   <div class="page-border section">
     <div class="container">
-      <div class="countdown" id="countdown">Loading...</div>
-      <div class="circle-image"><img src="./couple.jpg" alt="Couple" /></div>
+      <h2 id="countdown">Loading...</h2>
+      <div class="normal-image"><img src="./couple.jpg" alt="Couple" /></div>
       <div class="title">WE ARE GETTING MARRIED</div>
-      <div class="names">SIJOY</div>
+      <div class="names">Sijoy</div>
       <div class="and">&</div>
-      <div class="names">SHERLY</div>
+      <div class="names">Sherly</div>
       <div class="flowers">✿✿✿</div>
       <div class="date">17 Aug 2025</div>
     </div>
@@ -509,7 +530,7 @@ As we step into this beautiful new chapter, hand in hand, we’re so excited to 
     <div class="page-border section">
       <div class="invitation">
         <h3>Betrothal</h3>
-        <p>August 09, 2025 Saturday<br>12:00am</p>
+        <p>August 09, 2025 Saturday<br>12:00pm</p>
         <p>Venue: Little Flower Church<br>Olarikara</p>
         <p>Lunch at Cosmos Square Auditorium, Elthuruth</p>
         <a href="https://maps.app.goo.gl/BijQuiv7XZySuphX8" class="map-button">View Map</a>
@@ -527,12 +548,11 @@ As we step into this beautiful new chapter, hand in hand, we’re so excited to 
   <!-- Page 4: Thank You -->
   <section id="thankyou-section">
     <div class="page-border thank-you-container">
-      <div class="header">We joyfully invite you to be part of our special day and share the happiness of our union.</div>
+      <h1 class="header">We joyfully invite you to be part of our special day and share the happiness of our union.</h1>
       <div class="circle-image"><img src="./hand.png" alt="Couple" /></div>
-      <div class="thank-you"><strong>THANK YOU</strong></div>
     </div>
   </section>
-
+</main>
   <!-- Countdown Script -->
   <script>
     const countdownElement = document.getElementById('countdown');
@@ -547,7 +567,7 @@ As we step into this beautiful new chapter, hand in hand, we’re so excited to 
       const minutes = Math.floor((Math.abs(distance) % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((Math.abs(distance) % (1000 * 60)) / 1000);
 
-      countdownElement.textContent = `${distance < 0 ? '-' : ''}${days}d ${hours}h ${minutes}m ${seconds}s`;
+     countdownElement.textContent = `${distance < 0 ? '-' : ''}${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     updateCountdown();
