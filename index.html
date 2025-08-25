@@ -560,7 +560,7 @@ As we step into this beautiful new chapter, hand in hand, we’re so excited to 
 
     function updateCountdown() {
       const now = new Date();
-      const distance = targetDate - now;
+      const distance = now - targetDate;
 
       const days = Math.floor(Math.abs(distance) / (1000 * 60 * 60 * 24));
       const hours = Math.floor((Math.abs(distance) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -576,3 +576,4 @@ As we step into this beautiful new chapter, hand in hand, we’re so excited to 
 
 </body>
 </html>
+
